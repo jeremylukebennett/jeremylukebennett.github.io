@@ -1,0 +1,13 @@
+{
+  "name": "nutrition-tracker",
+  "version": "1.0.0",
+  "description": "Personal nutrition tracker",
+  "private": true,
+  "scripts": {
+    "start": "http-server -a localhost -p 8080",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

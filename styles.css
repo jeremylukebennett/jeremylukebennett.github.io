@@ -1,0 +1,412 @@
+/*****************************************************
+ * Global / Body / Layout
+ *****************************************************/
+body {
+margin: 0;
+padding: 1rem;
+font-family: Arial, sans-serif;
+transition: background 0.3s, color 0.3s;
+}
+
+body.light-mode {
+background: #f9f9f9;
+color: #333;
+}
+
+body.dark-mode {
+background: #121212;
+color: #eee;
+}
+
+#themeToggleBtn {
+position: fixed;
+top: 1rem;
+right: 1rem;
+padding: 0.5rem 1rem;
+cursor: pointer;
+border: 1px solid #888;
+border-radius: 4px;
+background: #555;
+color: #fff;
+transition: background 0.3s, color 0.3s;
+}
+
+body.light-mode #themeToggleBtn {
+background: #ccc;
+color: #000;
+border-color: #999;
+}
+
+.hidden {
+display: none;
+}
+
+/*****************************************************
+ * Auth Container
+ *****************************************************/
+#login-container {
+background: #000;
+color: #fff;
+padding: 1rem;
+border-radius: 8px;
+margin-bottom: 1rem;
+}
+
+input,
+button {
+margin: 0.25rem 0;
+padding: 0.5rem;
+font-size: 1rem;
+border: 1px solid #ccc;
+border-radius: 4px;
+transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode input,
+body.dark-mode button {
+border: 1px solid #666;
+background: #2a2a2a;
+color: #ccc;
+}
+
+/*****************************************************
+ * Main Flex Layout
+ *****************************************************/
+.main-flex {
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+}
+
+.section-block {
+flex: 1 1 0;
+border: 1px solid #ccc;
+border-radius: 6px;
+padding: 1rem;
+transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode .section-block {
+border-color: #555;
+}
+
+/*****************************************************
+ * Tables
+ *****************************************************/
+table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 1rem;
+transition: background 0.3s;
+}
+
+th,
+td {
+border: 1px solid #ccc;
+padding: 0.75rem;
+text-align: center;
+font-weight: bold;
+font-size: 1.05rem;
+position: relative;
+transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode th,
+body.dark-mode td {
+border-color: #555;
+}
+
+th:first-child,
+td:first-child {
+width: 130px;
+text-align: left;
+}
+
+#nutrientTable thead th {
+position: sticky;
+top: 0;
+cursor: pointer;
+background: #fff;
+z-index: 2;
+}
+
+body.dark-mode #nutrientTable thead th {
+background: #2a2a2a;
+}
+
+.sort-indicator {
+position: absolute;
+top: -1.2em;
+left: 0;
+font-size: 0.75em;
+font-style: italic;
+color: #888;
+}
+
+/*****************************************************
+ * Nutrient Cards (Averages / Medians)
+ *****************************************************/
+.cards-container {
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+margin: 1rem 0;
+}
+
+.nutrient-card {
+border: 1px solid #ddd;
+border-radius: 6px;
+padding: 1rem;
+flex: 1 1 220px;
+box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+min-width: 200px;
+margin: 0;
+transition: background 0.3s, color 0.3s;
+font-weight: bold;
+}
+
+body.dark-mode .nutrient-card {
+border-color: #555;
+box-shadow: none;
+}
+
+/*****************************************************
+ * Color Classes for Table Cells
+ *****************************************************/
+.col-calories {
+background: #FF6666;
+color: #fff;
+}
+
+.col-burned {
+background: #FFA500;
+color: #000;
+}
+
+.col-deficit {
+background: #888888;
+color: #fff;
+}
+
+.col-carbs {
+background: #3ECC3E;
+color: #fff;
+}
+
+.col-sugar {
+background: #FFD966;
+color: #000;
+}
+
+.col-protein {
+background: #6666FF;
+color: #fff;
+}
+
+.col-fiber {
+background: #B266FF;
+color: #fff;
+}
+
+.col-fat {
+background: #FF66B2;
+color: #fff;
+}
+
+.col-sodium {
+background: #66FFFF;
+color: #000;
+}
+
+body.dark-mode .col-calories {
+background: #c02e2e;
+}
+
+body.dark-mode .col-burned {
+background: #c77d0f;
+color: #fff;
+}
+
+body.dark-mode .col-deficit {
+background: #555555;
+color: #eee;
+}
+
+body.dark-mode .col-carbs {
+background: #2d9e2d;
+}
+
+body.dark-mode .col-sugar {
+background: #FFEA45;
+color: #000;
+}
+
+body.dark-mode .col-protein {
+background: #3939a1;
+}
+
+body.dark-mode .col-fiber {
+background: #7839a1;
+}
+
+body.dark-mode .col-fat {
+background: #a12e79;
+}
+
+body.dark-mode .col-sodium {
+background: #32c7c7;
+}
+
+/*****************************************************
+ * Modals
+ *****************************************************/
+#targetModalBackdrop,
+#nutrientModalBackdrop {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background: rgba(0, 0, 0, 0.6);
+display: none;
+align-items: center;
+justify-content: center;
+}
+
+#targetModal,
+#nutrientModal {
+background: #fff;
+color: #000;
+padding: 1rem;
+border-radius: 6px;
+min-width: 300px;
+}
+
+body.dark-mode #targetModal,
+body.dark-mode #nutrientModal {
+background: #2a2a2a;
+color: #ccc;
+}
+
+#targetModal h3,
+#nutrientModal h3 {
+margin-top: 0;
+}
+
+#targetModal table {
+width: 100%;
+margin-bottom: 1rem;
+border-collapse: collapse;
+}
+
+#targetModal td {
+padding: 0.25rem 0.5rem;
+}
+
+#closeModalBtn,
+#closeNutrientModalBtn {
+margin-left: 0.5rem;
+}
+
+.update-targets-link {
+color: #00f;
+text-decoration: underline;
+cursor: pointer;
+font-size: 0.9rem;
+margin-left: 1rem;
+}
+
+body.dark-mode .update-targets-link {
+color: #5ad;
+}
+
+/*****************************************************
+ * Live-Label Inputs
+ *****************************************************/
+.live-label {
+margin-left: 0.5rem;
+font-style: italic;
+color: #777;
+}
+
+body.dark-mode .live-label {
+color: #aaa;
+}
+
+/*****************************************************
+ * Trends / Charts
+ *****************************************************/
+.trends-header {
+display: flex;
+align-items: center;
+}
+
+.trends-header h2 {
+margin-right: 1rem;
+}
+
+#macroChart {
+margin-top: 1rem;
+width: 300px;
+height: 300px;
+}
+
+.recommended-text {
+font-size: 0.9rem;
+margin-top: 0.5rem;
+}
+
+/*****************************************************
+ * Daily Chart Section
+ *****************************************************/
+.daily-charts-section {
+margin-top: 1rem;
+}
+
+#dailyChartsContainer {
+display: flex;
+flex-wrap: wrap;
+gap: 2rem;
+margin-top: 1.5rem;
+}
+
+.daily-chart-block {
+border: 1px solid #ddd;
+border-radius: 6px;
+padding: 1rem;
+min-width: 320px;
+transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode .daily-chart-block {
+border-color: #555;
+}
+
+.daily-chart-canvas {
+width: 300px;
+height: 300px;
+}
+
+.range-buttons {
+display: flex;
+gap: 0.5rem;
+margin-right: 1rem;
+}
+
+.range-btn {
+padding: 0.5rem 1rem;
+border: 1px solid #ccc;
+border-radius: 4px;
+background: #f0f0f0;
+cursor: pointer;
+transition: background 0.3s;
+}
+
+.range-btn:hover {
+background: #e0e0e0;
+}
+
+.range-btn.active {
+background: #ddd;
+font-weight: bold;
+}
